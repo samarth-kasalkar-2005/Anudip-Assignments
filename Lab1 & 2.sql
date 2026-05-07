@@ -22,8 +22,6 @@ mysql> show databases;
 +--------------------+
 4 rows in set (0.01 sec)
 
-mysql> create database e-commerce;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-commerce' at line 1
 mysql> show databases;
 +--------------------+
 | Database           |
@@ -35,8 +33,6 @@ mysql> show databases;
 +--------------------+
 4 rows in set (0.00 sec)
 
-mysql> create database e-commerce;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-commerce' at line 1
 mysql> create database ecommerce;
 Query OK, 1 row affected (0.02 sec)
 
@@ -52,14 +48,6 @@ mysql> show databases;
 +--------------------+
 5 rows in set (0.00 sec)
 
-mysql> create table customer(customer_id varchar(5) not null primary key, name varchar(10) not null, city varchar(10) not null, email varchar(20) not null, address varchar(100) not null, phone_no varchar(10) not null, pin_code int not null);
-ERROR 1046 (3D000): No database selected
-mysql> create table customer(customer_id varchar(5) not null primary key, name varchar(10) not null, city varchar(10) not null, email varchar(20) not null, address varchar(100) not null, phone_no varchar(10) not null, pin_code int not null);
-ERROR 1046 (3D000): No database selected
-mysql> show tables
-    -> ecommerce
-    ->
-    -> ^C
 mysql> show tables;
 ERROR 1046 (3D000): No database selected
 mysql> use ecommerce
@@ -117,10 +105,6 @@ mysql> desc product;
 +----------------+-------------+------+-----+---------+-------+
 7 rows in set (0.00 sec)
 
-mysql> create table order(order_id int(5) not null primary key auto_increment, customer_id varchar(5) not null, product_id varchar(10) not null,quantity int(10) not null, total_price double not null, payment_mode varchar(20) not null, order_date not null, order_status varchar(20) not null, foreign key (customer_id) references customer (customer_id), foreign key (product_id) references product (product_id) );
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(5) not null primary key auto_increment, customer_id varchar(5' at line 1
-mysql> create table order(order_id int(5) not null primary key auto_increment, customer_id varchar(5) not null, product_id varchar(10) not null,quantity int(10) not null, total_price double not null, payment_mode varchar(20) not null, order_date date not null, order_status varchar(20) not null, foreign key (customer_id) references customer (customer_id), foreign key (product_id) references product (product_id) );
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(5) not null primary key auto_increment, customer_id varchar(5' at line 1
 mysql> create table orders(order_id int(5) not null primary key auto_increment, customer_id varchar(5) not null, product_id varchar(10) not null,quantity int(10) not null, total_price double not null, payment_mode varchar(20) not null, order_date date not null, order_status varchar(20) not null, foreign key (customer_id) references customer (customer_id), foreign key (product_id) references product (product_id) );
 Query OK, 0 rows affected, 2 warnings (0.10 sec)
 
@@ -151,8 +135,6 @@ mysql> show tables;
 +---------------------+
 3 rows in set (0.00 sec)
 
-mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!0!','Samarth','Mumbai','samarthdkasalkar@gmail.com','Kalyan_East','8591546181','421306');
-ERROR 1406 (22001): Data too long for column 'email' at row 1
 mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!0!','Samarth','Mumbai','sdk@gmail.com','Kalyan_East','8591546181','421306');
 Query OK, 1 row affected (0.02 sec)
 
@@ -187,8 +169,6 @@ mysql> desc customer
 +-------------+--------------+------+-----+---------+-------+
 7 rows in set (0.00 sec)
 
-mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!0!','Sammy','Mumbai','sammy@gmail.com','Kalyan_East','9373744603','421306');
-ERROR 1062 (23000): Duplicate entry 'c!0!' for key 'customer.PRIMARY'
 mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!1!','Sammy','Mumbai','sammy@gmail.com','Kalyan_East','9373744603','421306');
 Query OK, 1 row affected (0.02 sec)
 
@@ -265,13 +245,6 @@ mysql> desc demo
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
-mysql> alter table demo add primary key(demo.id)
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id)' at line 1
-mysql> alter table demo add primary key(demo.id);
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id)' at line 1
-mysql> alter table demo add primary key(demo_id);
-ERROR 1072 (42000): Key column 'demo_id' doesn't exist in table
 mysql> alter table demo add primary key(id);
 Query OK, 0 rows affected (0.12 sec)
 Records: 0  Duplicates: 0  Warnings: 0
