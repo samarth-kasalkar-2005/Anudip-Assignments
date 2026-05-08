@@ -26,13 +26,8 @@ mysql> show databases;
 
 mysql> use ecommerce
 Database changed
-mysql> desc ecommerce
-    -> ;
-ERROR 1146 (42S02): Table 'ecommerce.ecommerce' doesn't exist
-mysql> desc customers;
-ERROR 1146 (42S02): Table 'ecommerce.customers' doesn't exist
-mysql> show tables
-    -> ;
+
+mysql> show tables;
 +---------------------+
 | Tables_in_ecommerce |
 +---------------------+
@@ -86,8 +81,7 @@ mysql> select * from customer where name like '%ar%';
 +-------------+---------+--------+---------------------------+-------------+------------+----------+
 2 rows in set (0.00 sec)
 
-mysql> select * from customer where name like 'S____'
-    -> ;
+mysql> select * from customer where name like 'S____';
 +-------------+-------+--------+-----------------+-------------+------------+----------+
 | customer_id | name  | city   | email           | address     | phone_no   | pin_code |
 +-------------+-------+--------+-----------------+-------------+------------+----------+
@@ -103,8 +97,7 @@ mysql> select * from customer where name like 'S__';
 +-------------+------+--------+---------------+-------------+------------+----------+
 1 row in set (0.00 sec)
 
-mysql> select * from customer
-    -> ;
+mysql> select * from customer;
 +-------------+---------+--------+---------------------------+-------------+------------+----------+
 | customer_id | name    | city   | email                     | address     | phone_no   | pin_code |
 +-------------+---------+--------+---------------------------+-------------+------------+----------+
@@ -156,9 +149,6 @@ mysql> select * from customer;
 +-------------+----------+--------+---------------------------+-------------+------------+----------+
 7 rows in set (0.00 sec)
 
-mysql> desc products
-    -> ;
-ERROR 1146 (42S02): Table 'ecommerce.products' doesn't exist
 mysql> show tables;
 +---------------------+
 | Tables_in_ecommerce |
@@ -183,13 +173,6 @@ mysql> desc product;
 +----------------+-------------+------+-----+---------+-------+
 7 rows in set (0.01 sec)
 
-mysql> ALTER TABLE table_name
-    -> ADD column_name data_type [constraints];
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'data_type [constraints]' at line 2
-mysql> alter table customer add bill_recipt data_type[constraints];
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'data_type[constraints]' at line 1
-mysql> alter table customer add bill_recipt;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
 mysql> alter table customer add bill_recipt int(10);
 Query OK, 0 rows affected, 1 warning (0.06 sec)
 Records: 0  Duplicates: 0  Warnings: 1
@@ -229,11 +212,6 @@ mysql> select * from customer where customer_id between 'c!2!' and 'c!5!';
 +-------------+---------+--------+---------------------------+-------------+------------+----------+-------------+
 4 rows in set (0.00 sec)
 
-mysql> select * from customer where customer_id not in ('c!2!','C!6!',C!3!');
-    '> ;
-    '> ^C
-mysql> select * from customer where customer_id not in ('c!2!','C!3!',C!6!');
-    '> ^C
 mysql> select * from customer where customer_id not in ('c!2!','C!3!','C!6!');
 +-------------+---------+--------+---------------------------+-------------+------------+----------+-------------+
 | customer_id | name    | city   | email                     | address     | phone_no   | pin_code | bill_recipt |
