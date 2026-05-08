@@ -268,9 +268,6 @@ mysql> select * from customer;
 +-------------+---------+--------+-----------------+-------------+------------+----------+
 3 rows in set (0.00 sec)
 
-mysql> delete from customer where customer_id='c!1!
-    '> ;
-    '> ^C
 mysql> delete from customer where customer_id='c!1!';
 Query OK, 1 row affected (0.02 sec)
 
