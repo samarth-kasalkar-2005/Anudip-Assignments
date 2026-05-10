@@ -48,8 +48,6 @@ mysql> show databases;
 +--------------------+
 5 rows in set (0.00 sec)
 
-mysql> show tables;
-ERROR 1046 (3D000): No database selected
 mysql> use ecommerce
 Database changed
 mysql> create table customer(customer_id varchar(5) not null primary key, name varchar(10) not null, city varchar(10) not null, email varchar(20) not null, address varchar(100) not null, phone_no varchar(10) not null, pin_code int not null);
@@ -154,8 +152,7 @@ mysql> select customer_id, name from customer;
 +-------------+---------+
 1 row in set (0.00 sec)
 
-mysql> desc customer
-    -> ;
+mysql> desc customer;
 +-------------+--------------+------+-----+---------+-------+
 | Field       | Type         | Null | Key | Default | Extra |
 +-------------+--------------+------+-----+---------+-------+
@@ -293,8 +290,6 @@ mysql> select * from customer;
 +-------------+---------+--------+-----------------+-------------+------------+----------+
 3 rows in set (0.00 sec)
 
-mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!4!','Samarth','Mumbai','samarthdkasalkar@gmail.com','Kalyan_East','9876543210','421306');
-ERROR 1406 (22001): Data too long for column 'email' at row 1
 mysql> insert into customer(customer_id,name, city, email, address, phone_no, pin_code)values('c!4!','Samarth','Mumbai','samarthkasalkar@gmail.com','Kalyan_East','9876543210','421306');
 Query OK, 1 row affected (0.01 sec)
 
@@ -309,8 +304,6 @@ mysql> select * from customer;
 +-------------+---------+--------+---------------------------+-------------+------------+----------+
 4 rows in set (0.00 sec)
 
-mysql> srlect * from demo
-    -> ^C
 mysql> select*from demo
     -> ;
 Empty set (0.00 sec)
@@ -328,12 +321,10 @@ mysql> desc demo
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
-mysql> truncate table orders
-    -> ;
+mysql> truncate table orders;
 Query OK, 0 rows affected (0.13 sec)
 
-mysql> desc orders
-    -> ;
+mysql> desc orders;
 +--------------+-------------+------+-----+---------+----------------+
 | Field        | Type        | Null | Key | Default | Extra          |
 +--------------+-------------+------+-----+---------+----------------+
@@ -348,10 +339,7 @@ mysql> desc orders
 +--------------+-------------+------+-----+---------+----------------+
 8 rows in set (0.00 sec)
 
-mysql> truncate table customer;
-ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`ecommerce`.`orders`, CONSTRAINT `orders_ibfk_1`)
-mysql> insert into demo values('101','Aaditya')
-    -> ;
+mysql> insert into demo values('101','Aaditya');
 Query OK, 1 row affected (0.01 sec)
 
 mysql> select * from demo;
