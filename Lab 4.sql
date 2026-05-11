@@ -266,5 +266,4 @@ mysql> select department, avg(salary) as average_salary from employee group by d
 +------------+----------------+
 2 rows in set (0.00 sec)
 
-mysql> ^C
 mysql>
